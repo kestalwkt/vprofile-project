@@ -21,11 +21,11 @@ services:
     image: rabbitmq
     ports: 
       - "15672:15672"
-    environemnet:
-    RABBITMQ_DEFAULT_USER=guest
-    RABBITMQ_DEFAULT_PASS=guest
+    environment:
+      - RABBITMQ_DEFAULT_USER=guest
+      - RABBITMQ_DEFAULT_PASS=guest
 
-    vproapp:
+  vproapp:
     build:
       context: ./Docker-files/app
     image: kestalwkt/vprofileapp
@@ -35,7 +35,7 @@ services:
     volumes:
       - vproappapp:/usr/local/tomcat/webapps
 
-    vproweb:
+  vproweb:
     build:
       context: ./Docker-files/web
     image: kestalwkt/vprofileweb
